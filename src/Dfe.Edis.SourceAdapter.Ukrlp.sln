@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp", "Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp\Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp.csproj", "{EF10FC4A-AFCE-4FBB-ACC0-9B0EEBB2DEE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.Domain", "Dfe.Edis.SourceAdapter.Ukrlp.Domain\Dfe.Edis.SourceAdapter.Ukrlp.Domain.csproj", "{071E13D6-798C-4BEB-B9EC-FACEA0BE0716}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.Application", "Dfe.Edis.SourceAdapter.Ukrlp.Application\Dfe.Edis.SourceAdapter.Ukrlp.Application.csproj", "{3A2F19AC-D7AE-45E3-95B8-B1F07164466E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AD95F80A-60C5-4785-AEED-9B7947D859BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp.UnitTests", "Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp.UnitTests\Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp.UnitTests.csproj", "{2B08F8E7-7AD7-4252-9C62-ABFCAAEA28CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF10FC4A-AFCE-4FBB-ACC0-9B0EEBB2DEE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF10FC4A-AFCE-4FBB-ACC0-9B0EEBB2DEE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF10FC4A-AFCE-4FBB-ACC0-9B0EEBB2DEE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF10FC4A-AFCE-4FBB-ACC0-9B0EEBB2DEE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{071E13D6-798C-4BEB-B9EC-FACEA0BE0716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{071E13D6-798C-4BEB-B9EC-FACEA0BE0716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{071E13D6-798C-4BEB-B9EC-FACEA0BE0716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{071E13D6-798C-4BEB-B9EC-FACEA0BE0716}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A2F19AC-D7AE-45E3-95B8-B1F07164466E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A2F19AC-D7AE-45E3-95B8-B1F07164466E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A2F19AC-D7AE-45E3-95B8-B1F07164466E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A2F19AC-D7AE-45E3-95B8-B1F07164466E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B08F8E7-7AD7-4252-9C62-ABFCAAEA28CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B08F8E7-7AD7-4252-9C62-ABFCAAEA28CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B08F8E7-7AD7-4252-9C62-ABFCAAEA28CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B08F8E7-7AD7-4252-9C62-ABFCAAEA28CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2B08F8E7-7AD7-4252-9C62-ABFCAAEA28CC} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
+	EndGlobalSection
+EndGlobal
