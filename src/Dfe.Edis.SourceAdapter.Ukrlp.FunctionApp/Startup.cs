@@ -1,8 +1,11 @@
 using System.IO;
+using Dfe.Edis.SourceAdapter.Ukrlp.Application;
 using Dfe.Edis.SourceAdapter.Ukrlp.Domain.Configuration;
 using Dfe.Edis.SourceAdapter.Ukrlp.Domain.DataServicesPlatform;
+using Dfe.Edis.SourceAdapter.Ukrlp.Domain.StateManagement;
 using Dfe.Edis.SourceAdapter.Ukrlp.Domain.UkrlpApi;
 using Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp;
+using Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.AzureStorage;
 using Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.Kafka.RestProxy;
 using Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.UkrlpSoapApi;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
@@ -44,6 +47,10 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp
 
             AddUkrlpApi(services);
             AddUkrlpDataReceiver(services);
+            AddState(services);
+
+            services
+                .AddScoped<IChangeProcessor, ChangeProcessor>();
         }
 
         private void AddConfiguration(IServiceCollection services, IConfigurationRoot configurationRoot)
@@ -56,6 +63,7 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp
 
             services.AddSingleton(configuration);
             services.AddSingleton(configuration.UkrlpApi);
+            services.AddSingleton(configuration.DataServicePlatform);
             services.AddSingleton(configuration.State);
         }
 
@@ -74,6 +82,11 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp
         {
             services.AddHttpClient<KafkaRestProxyUkrlpDataReceiver>();
             services.AddScoped<IUkrlpDataReceiver, KafkaRestProxyUkrlpDataReceiver>();
+        }
+
+        private void AddState(IServiceCollection services)
+        {
+            services.AddScoped<IStateStore, BlobStateStore>();
         }
     }
 }

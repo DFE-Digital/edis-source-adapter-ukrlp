@@ -20,7 +20,9 @@
         </None>
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\Dfe.Edis.SourceAdapter.Ukrlp.Application\Dfe.Edis.SourceAdapter.Ukrlp.Application.csproj" />
       <ProjectReference Include="..\Dfe.Edis.SourceAdapter.Ukrlp.Domain\Dfe.Edis.SourceAdapter.Ukrlp.Domain.csproj" />
+      <ProjectReference Include="..\Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.AzureStorage\Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.AzureStorage.csproj" />
       <ProjectReference Include="..\Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.Kafka\Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.Kafka.csproj" />
       <ProjectReference Include="..\Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.UkrlpSoapApi\Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.UkrlpSoapApi.csproj" />
     </ItemGroup>

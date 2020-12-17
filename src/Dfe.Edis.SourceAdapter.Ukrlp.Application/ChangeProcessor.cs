@@ -8,7 +8,12 @@ using Microsoft.Extensions.Logging;
 
 namespace Dfe.Edis.SourceAdapter.Ukrlp.Application
 {
-    public class ChangeProcessor
+    public interface IChangeProcessor
+    {
+        Task ProcessChangesAsync(CancellationToken cancellationToken);
+    }
+
+    public class ChangeProcessor : IChangeProcessor
     {
         private readonly IUkrlpApiClient _ukrlpApiClient;
         private readonly IStateStore _stateStore;
