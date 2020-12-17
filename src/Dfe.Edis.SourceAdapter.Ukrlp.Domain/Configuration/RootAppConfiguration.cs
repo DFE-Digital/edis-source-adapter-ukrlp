@@ -4,5 +4,6 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.Domain.Configuration
     {
         public UkrlpApiConfiguration UkrlpApi { get; set; }
         public StateConfiguration State { get; set; }
+        public DataServicePlatformConfiguration DataServicePlatform { get; set; }
     }
 }

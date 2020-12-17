@@ -60,8 +60,12 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp.UnitTests.StartupTests
                 {
                     new KeyValuePair<string, string>("UkrlpApi:WebServiceUrl", "http://localhost:1234"),
                     new KeyValuePair<string, string>("UkrlpApi:StakeholderId", "987654"),
-                    new KeyValuePair<string, string>("StateConfiguration:BlobConnectionString", "UseDevelopmentStorage=true"),
-                    new KeyValuePair<string, string>("StateConfiguration:BlobContainerName", "unit-tests"),
+                    new KeyValuePair<string, string>("State:BlobConnectionString", "UseDevelopmentStorage=true"),
+                    new KeyValuePair<string, string>("State:BlobContainerName", "unit-tests"),
+                    new KeyValuePair<string, string>("DataServicePlatform:KafkaBootstrapServers", "localhost:1001"),
+                    new KeyValuePair<string, string>("DataServicePlatform:KafkaRestProxyUrl", "https://localhost:1003"),
+                    new KeyValuePair<string, string>("DataServicePlatform:SchemaRegistryUrl", "https://localhost:1002"),
+                    new KeyValuePair<string, string>("DataServicePlatform:UkrlpProviderTopic", "test-topic"),
                 }).Build();
         }
 

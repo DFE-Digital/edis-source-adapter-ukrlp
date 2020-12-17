@@ -1,7 +1,9 @@
 using System.IO;
 using Dfe.Edis.SourceAdapter.Ukrlp.Domain.Configuration;
+using Dfe.Edis.SourceAdapter.Ukrlp.Domain.DataServicesPlatform;
 using Dfe.Edis.SourceAdapter.Ukrlp.Domain.UkrlpApi;
 using Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp;
+using Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.Kafka.RestProxy;
 using Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.UkrlpSoapApi;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +13,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 [assembly: FunctionsStartup(typeof(Startup))]
+
 namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp
 {
     public class Startup : FunctionsStartup
@@ -38,10 +41,11 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp
 
             AddConfiguration(services, configurationRoot);
             AddLogging(services);
-            
+
             AddUkrlpApi(services);
+            AddUkrlpDataReceiver(services);
         }
-        
+
         private void AddConfiguration(IServiceCollection services, IConfigurationRoot configurationRoot)
         {
             var configuration = new RootAppConfiguration();
@@ -64,6 +68,12 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp
         {
             services.AddHttpClient<UkrlpSoapApiClient>();
             services.AddScoped<IUkrlpApiClient, UkrlpSoapApiClient>();
+        }
+
+        private void AddUkrlpDataReceiver(IServiceCollection services)
+        {
+            services.AddHttpClient<KafkaRestProxyUkrlpDataReceiver>();
+            services.AddScoped<IUkrlpDataReceiver, KafkaRestProxyUkrlpDataReceiver>();
         }
     }
 }
