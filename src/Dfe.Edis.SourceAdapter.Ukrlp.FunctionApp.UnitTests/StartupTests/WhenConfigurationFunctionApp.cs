@@ -60,6 +60,8 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp.UnitTests.StartupTests
                 {
                     new KeyValuePair<string, string>("UkrlpApi:WebServiceUrl", "http://localhost:1234"),
                     new KeyValuePair<string, string>("UkrlpApi:StakeholderId", "987654"),
+                    new KeyValuePair<string, string>("StateConfiguration:BlobConnectionString", "UseDevelopmentStorage=true"),
+                    new KeyValuePair<string, string>("StateConfiguration:BlobContainerName", "unit-tests"),
                 }).Build();
         }
 

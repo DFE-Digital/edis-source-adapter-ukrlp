@@ -51,6 +51,8 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp
             services.AddSingleton(configurationRoot);
 
             services.AddSingleton(configuration);
+            services.AddSingleton(configuration.UkrlpApi);
+            services.AddSingleton(configuration.State);
         }
 
         private void AddLogging(IServiceCollection services)
