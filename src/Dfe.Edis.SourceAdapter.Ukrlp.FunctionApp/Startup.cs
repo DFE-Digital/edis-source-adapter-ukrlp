@@ -1,6 +1,8 @@
 using System.IO;
 using Dfe.Edis.SourceAdapter.Ukrlp.Domain.Configuration;
+using Dfe.Edis.SourceAdapter.Ukrlp.Domain.UkrlpApi;
 using Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp;
+using Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.UkrlpSoapApi;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,6 +38,8 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp
 
             AddConfiguration(services, configurationRoot);
             AddLogging(services);
+            
+            AddUkrlpApi(services);
         }
         
         private void AddConfiguration(IServiceCollection services, IConfigurationRoot configurationRoot)
@@ -52,6 +56,12 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp
         private void AddLogging(IServiceCollection services)
         {
             services.AddLogging(builder => { builder.SetMinimumLevel(LogLevel.Debug); });
+        }
+
+        private void AddUkrlpApi(IServiceCollection services)
+        {
+            services.AddHttpClient<UkrlpSoapApiClient>();
+            services.AddScoped<IUkrlpApiClient, UkrlpSoapApiClient>();
         }
     }
 }

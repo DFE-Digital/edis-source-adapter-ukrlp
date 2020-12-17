@@ -58,7 +58,8 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp.UnitTests.StartupTests
             return new ConfigurationBuilder()
                 .AddInMemoryCollection(new[]
                 {
-                    new KeyValuePair<string, string>("key", "value"),
+                    new KeyValuePair<string, string>("UkrlpApi:WebServiceUrl", "http://localhost:1234"),
+                    new KeyValuePair<string, string>("UkrlpApi:StakeholderId", "987654"),
                 }).Build();
         }
 
