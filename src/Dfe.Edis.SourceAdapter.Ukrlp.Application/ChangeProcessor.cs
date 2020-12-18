@@ -52,8 +52,11 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.Application
             }
 
             var changedProviders = await _ukrlpApiClient.GetProvidersChangedSinceAsync(lastChecked, cancellationToken);
+            _logger.LogInformation("Found {NumberOfProvidersChanged} changed providers since {ChangedSinceDate}",
+                changedProviders.Length, lastChecked);
+            
             lastChecked = DateTime.Now;
-
+            
             foreach (var provider in changedProviders)
             {
                 await _ukrlpDataReceiver.SendDataAsync(provider, cancellationToken);
