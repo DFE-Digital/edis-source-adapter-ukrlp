@@ -37,14 +37,16 @@ steps:
       command: publish
       publishWebProjects: false
       projects: 'src/Dfe.Edis.SourceAdapter.Ukrlp.WebJob/Dfe.Edis.SourceAdapter.Ukrlp.WebJob.csproj'
-      arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)/to_package/App_Data/jobs/continuous/UkrlpSourceJob --no-restore --no-build'
+      arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)/PublishedWebJob/App_Data/jobs/continuous/UkrlpSourceJob --no-restore --no-build'
       
   - task: ArchiveFiles@2
     displayName: 'Zip WebJob'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/publish/Dfe.Edis.SourceAdapter.Ukrlp.$(Build.BuildId).zip'
-    replaceExistingArchive: true
+    inputs:
+      rootFolderOrFile: '$(build.artifactstagingdirectory)/PublishedWebJob'
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/publish/Dfe.Edis.SourceAdapter.Ukrlp.$(Build.BuildId).zip'
+      replaceExistingArchive: true
 
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact'
