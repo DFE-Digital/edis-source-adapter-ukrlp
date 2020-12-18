@@ -1,4 +1,5 @@
 using System.IO;
+using System.Net.Http;
 using Dfe.Edis.SourceAdapter.Ukrlp.Application;
 using Dfe.Edis.SourceAdapter.Ukrlp.Domain.Configuration;
 using Dfe.Edis.SourceAdapter.Ukrlp.Domain.DataServicesPlatform;
@@ -45,6 +46,8 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp
             AddConfiguration(services, configurationRoot);
             AddLogging(services);
 
+            services.AddHttpClient();
+
             AddUkrlpApi(services);
             AddUkrlpDataReceiver(services);
             AddState(services);
@@ -57,7 +60,6 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp
         {
             var configuration = new RootAppConfiguration();
             configurationRoot.Bind(configuration);
-
 
             services.AddSingleton(configurationRoot);
 
@@ -74,14 +76,28 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp
 
         private void AddUkrlpApi(IServiceCollection services)
         {
-            services.AddHttpClient<UkrlpSoapApiClient>();
-            services.AddScoped<IUkrlpApiClient, UkrlpSoapApiClient>();
+            // Having issues with Typed clients with HTTP extensions. Doing this for now
+            services.AddScoped<IUkrlpApiClient, UkrlpSoapApiClient>(sp =>
+            {
+                var httpClientFactory = sp.GetService<IHttpClientFactory>();
+                return new UkrlpSoapApiClient(
+                    httpClientFactory.CreateClient(),
+                    sp.GetService<UkrlpApiConfiguration>(),
+                    sp.GetService<ILogger<UkrlpSoapApiClient>>());
+            });
         }
 
         private void AddUkrlpDataReceiver(IServiceCollection services)
         {
-            services.AddHttpClient<KafkaRestProxyUkrlpDataReceiver>();
-            services.AddScoped<IUkrlpDataReceiver, KafkaRestProxyUkrlpDataReceiver>();
+            // Having issues with Typed clients with HTTP extensions. Doing this for now
+            services.AddScoped<IUkrlpDataReceiver, KafkaRestProxyUkrlpDataReceiver>(sp =>
+            {
+                var httpClientFactory = sp.GetService<IHttpClientFactory>();
+                return new KafkaRestProxyUkrlpDataReceiver(
+                    httpClientFactory.CreateClient(),
+                    sp.GetService<DataServicePlatformConfiguration>(),
+                    sp.GetService<ILogger<KafkaRestProxyUkrlpDataReceiver>>());
+            });
         }
 
         private void AddState(IServiceCollection services)
