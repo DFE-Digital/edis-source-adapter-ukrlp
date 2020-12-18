@@ -22,6 +22,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.Kafka.UnitTests", "Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.Kafka.UnitTests\Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.Kafka.UnitTests.csproj", "{C73FABB1-AE57-4B96-8CE5-95EF3D01B20F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{66F115F3-5918-4C63-8E04-93E63DA37541}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{BD7944F8-CCE4-4EC4-85C1-459156448952}"
+ProjectSection(SolutionItems) = preProject
+	..\pipelines\build.yml = ..\pipelines\build.yml
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,5 +81,6 @@ Global
 		{5F8C78AB-F94C-4CE0-B515-31A549072336} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
 		{ECD6D2AE-5C62-4616-9CF7-2C3EB088F9D1} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
 		{C73FABB1-AE57-4B96-8CE5-95EF3D01B20F} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
+		{BD7944F8-CCE4-4EC4-85C1-459156448952} = {66F115F3-5918-4C63-8E04-93E63DA37541}
 	EndGlobalSection
 EndGlobal
