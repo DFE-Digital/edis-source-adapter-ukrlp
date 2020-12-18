@@ -38,6 +38,8 @@ steps:
       publishWebProjects: false
       projects: 'src/Dfe.Edis.SourceAdapter.Ukrlp.WebJob/Dfe.Edis.SourceAdapter.Ukrlp.WebJob.csproj'
       arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)/PublishedWebJob/App_Data/jobs/continuous/UkrlpSourceJob --no-restore --no-build'
+      zipAfterPublish: false
+      modifyOutputPath: false
       
   - task: ArchiveFiles@2
     displayName: 'Zip WebJob'
