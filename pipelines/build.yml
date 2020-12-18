@@ -37,7 +37,7 @@ steps:
       command: publish
       publishWebProjects: false
       projects: 'src/Dfe.Edis.SourceAdapter.Ukrlp.WebJob/Dfe.Edis.SourceAdapter.Ukrlp.WebJob.csproj'
-      arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)/PublishedWebJob/App_Data/jobs/continuous/UkrlpSourceJob --no-restore --no-build'
+      arguments: '--configuration $(buildConfiguration)--self-contained -r win10-x64 --output $(build.artifactstagingdirectory)/PublishedWebJob/App_Data/jobs/continuous/UkrlpSourceJob --no-restore --no-build'
       zipAfterPublish: false
       modifyOutputPath: false
       
