@@ -49,7 +49,7 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.AzureStorage
             var buffer = Encoding.UTF8.GetBytes(value);
             using (var stream = new MemoryStream(buffer))
             {
-                await blob.UploadAsync(stream, cancellationToken);
+                await blob.UploadAsync(stream, true, cancellationToken);
             }
         }
     }
