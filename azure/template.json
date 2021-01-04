@@ -47,6 +47,17 @@
     },
     "kafkaUkrlpProviderTopic": {
       "type": "string"
+    },
+    "vNetInstance": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 2,
+      "defaultValue": "01"
+    },
+    "subnetInstance": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 2
     }
   },
   "variables": {
@@ -57,7 +68,11 @@
     "appServicePlanId": "[concat(resourceGroup().id,'/providers/','Microsoft.Web/serverfarms/', variables('appServicePlanName'))]",
     "appServiceName": "[toLower(concat(variables('namePrefix'), '-', parameters('appName'), '-app-01'))]",
     "sharedResourceGroupName": "[concat(variables('namePrefix'), '-shared')]",
-    "appInsightsName": "[concat(variables('sharedResourceGroupName'), '-ai-01')]"
+    "appInsightsName": "[concat(variables('sharedResourceGroupName'), '-ai-01')]",
+    "corePrefix": "[concat(variables('namePrefix'), '-core')]",
+    "vNetName": "[concat(concat(variables('corePrefix'), '-vn-'), parameters('vNetInstance'))]",
+    "subnetName": "[concat(concat(variables('corePrefix'), '-sn-'), parameters('subnetInstance'))]",
+    "subnetId": "[resourceId(variables('corePrefix'), 'Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), variables('subnetName'))]"
   },
   "resources": [
     {
@@ -202,7 +217,21 @@
             }
           ]
         }
-      }
+      },
+      "resources": [
+        {
+          "apiVersion": "2016-08-01",
+          "type": "Microsoft.Web/sites/networkConfig",
+          "name": "[concat(variables('appServiceName'), '/VirtualNetwork')]",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', variables('appServiceName'))]"
+          ],
+          "properties": {
+            "subnetResourceId": "[variables('subnetId')]"
+          }
+        }
+      ]
     },
     {
       "type": "Microsoft.Web/sites/config",
