@@ -15,9 +15,11 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.WebJob
         static async Task Main(string[] args)
         {
             var hostBuilder = new HostBuilder();
+            var defaultLogLevel = LogLevel.Information;
             
 #if DEBUG
             hostBuilder.UseEnvironment("development");
+            defaultLogLevel = LogLevel.Debug;
 #endif
 
             var configuration = LoadConfiguration();
@@ -35,7 +37,16 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.WebJob
             });
             hostBuilder.ConfigureLogging((context, logBuilder) =>
             {
-                logBuilder.SetMinimumLevel(LogLevel.Debug);
+                // Having issues with setting log level with environment variable as per documentation
+                // (https://docs.microsoft.com/en-us/dotnet/core/extensions/logging#set-log-level-by-command-line-environment-variables-and-other-configuration)
+                // So using same variable name, but doing manually
+                LogLevel logLevel;
+                if (!Enum.TryParse(Environment.GetEnvironmentVariable("Logging__LogLevel__Default"), true, out logLevel))
+                {
+                    logLevel = defaultLogLevel;
+                }
+                logBuilder.SetMinimumLevel(logLevel);
+                
                 logBuilder.AddConsole();
 
                 var appInsightsKey = Environment.GetEnvironmentVariable("APPINSIGHTS_INSTRUMENTATIONKEY");
