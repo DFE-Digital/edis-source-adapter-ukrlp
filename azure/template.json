@@ -254,7 +254,7 @@
             },
             {
               "Name": "State__BlobContainerName",
-              "Value": "[variables('variables('storageAccountContainerName')')]"
+              "Value": "[variables('storageAccountContainerName')]"
             },
             {
               "Name": "DataServicePlatform__KafkaRestProxyUrl",
