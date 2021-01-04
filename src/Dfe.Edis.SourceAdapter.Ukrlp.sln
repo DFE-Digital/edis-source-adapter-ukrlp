@@ -29,6 +29,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.WebJob.UnitTests", "Dfe.Edis.SourceAdapter.Ukrlp.WebJob.UnitTests\Dfe.Edis.SourceAdapter.Ukrlp.WebJob.UnitTests.csproj", "{28B6B9C1-DA2D-4432-8F7A-379E46A915E6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Release", "Release", "{FBCD826F-EF52-462B-983A-9B527979E11D}"
+ProjectSection(SolutionItems) = preProject
+	..\azure\template.json = ..\azure\template.json
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -82,5 +87,6 @@ Global
 		{C73FABB1-AE57-4B96-8CE5-95EF3D01B20F} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
 		{BD7944F8-CCE4-4EC4-85C1-459156448952} = {66F115F3-5918-4C63-8E04-93E63DA37541}
 		{28B6B9C1-DA2D-4432-8F7A-379E46A915E6} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
+		{FBCD826F-EF52-462B-983A-9B527979E11D} = {66F115F3-5918-4C63-8E04-93E63DA37541}
 	EndGlobalSection
 EndGlobal
