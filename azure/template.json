@@ -47,46 +47,110 @@
     },
     "kafkaUkrlpProviderTopic": {
       "type": "string"
+    },
+    "vNetInstance": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 2,
+      "defaultValue": "01"
+    },
+    "subnetInstance": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 2
     }
   },
   "variables": {
     "namePrefix": "[concat(parameters('serviceIdentifier'), parameters('environment'), parameters('environmentInstance'))]",
     "storageAccountName": "[toLower(concat(variables('namePrefix'), parameters('appName')))]",
     "storageAccountId": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "storageAccountContainerName": "edis-ukrlp",
     "appServicePlanName": "[toLower(concat(variables('namePrefix'), '-', parameters('appName'), '-asp-01'))]",
     "appServicePlanId": "[concat(resourceGroup().id,'/providers/','Microsoft.Web/serverfarms/', variables('appServicePlanName'))]",
     "appServiceName": "[toLower(concat(variables('namePrefix'), '-', parameters('appName'), '-app-01'))]",
     "sharedResourceGroupName": "[concat(variables('namePrefix'), '-shared')]",
-    "appInsightsName": "[concat(variables('sharedResourceGroupName'), '-ai-01')]"
+    "appInsightsName": "[concat(variables('sharedResourceGroupName'), '-ai-01')]",
+    "corePrefix": "[concat(variables('namePrefix'), '-core')]",
+    "vNetName": "[concat(concat(variables('corePrefix'), '-vn-'), parameters('vNetInstance'))]",
+    "subnetName": "[concat(concat(variables('corePrefix'), '-sn-'), parameters('subnetInstance'))]",
+    "subnetId": "[resourceId(variables('corePrefix'), 'Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), variables('subnetName'))]"
   },
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2020-08-01-preview",
       "name": "[variables('storageAccountName')]",
-      "apiVersion": "2019-04-01",
       "location": "[resourceGroup().location]",
-      "kind": "Storage",
+      "tags": {
+        "Environment": "[parameters('environmentName')]",
+        "App": "[parameters('appName')]"
+      },
       "sku": {
         "name": "Standard_LRS",
         "tier": "Standard"
       },
+      "kind": "Storage",
       "properties": {
+        "networkAcls": {
+          "bypass": "None",
+          "virtualNetworkRules": [
+            {
+              "id": "[variables('subnetId')]",
+              "action": "Allow",
+              "state": "Succeeded"
+            }
+          ],
+          "ipRules": [],
+          "defaultAction": "Deny"
+        },
         "supportsHttpsTrafficOnly": true,
         "encryption": {
           "services": {
             "file": {
+              "keyType": "Account",
               "enabled": true
             },
             "blob": {
+              "keyType": "Account",
               "enabled": true
             }
           },
           "keySource": "Microsoft.Storage"
         }
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices",
+      "apiVersion": "2020-08-01-preview",
+      "name": "[concat(variables('storageAccountName'), '/default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+      ],
+      "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
       },
-      "tags": {
-        "Environment": "[parameters('environmentName')]",
-        "App": "[parameters('appName')]"
+      "properties": {
+        "cors": {
+          "corsRules": []
+        },
+        "deleteRetentionPolicy": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2020-08-01-preview",
+      "name": "[concat(variables('storageAccountName'), '/default/', variables('storageAccountContainerName'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices', variables('storageAccountName'), 'default')]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+      ],
+      "properties": {
+        "defaultEncryptionScope": "$account-encryption-key",
+        "denyEncryptionScopeOverride": false,
+        "publicAccess": "None"
       }
     },
     {
@@ -190,7 +254,7 @@
             },
             {
               "Name": "State__BlobContainerName",
-              "Value": "edis-ukrlp"
+              "Value": "[variables('storageAccountContainerName')]"
             },
             {
               "Name": "DataServicePlatform__KafkaRestProxyUrl",
@@ -202,7 +266,21 @@
             }
           ]
         }
-      }
+      },
+      "resources": [
+        {
+          "apiVersion": "2016-08-01",
+          "type": "Microsoft.Web/sites/networkConfig",
+          "name": "[concat(variables('appServiceName'), '/VirtualNetwork')]",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', variables('appServiceName'))]"
+          ],
+          "properties": {
+            "subnetResourceId": "[variables('subnetId')]"
+          }
+        }
+      ]
     },
     {
       "type": "Microsoft.Web/sites/config",
