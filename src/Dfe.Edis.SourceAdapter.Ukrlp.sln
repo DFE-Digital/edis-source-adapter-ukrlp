@@ -1,14 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp", "Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp\Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp.csproj", "{EF10FC4A-AFCE-4FBB-ACC0-9B0EEBB2DEE8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.Domain", "Dfe.Edis.SourceAdapter.Ukrlp.Domain\Dfe.Edis.SourceAdapter.Ukrlp.Domain.csproj", "{071E13D6-798C-4BEB-B9EC-FACEA0BE0716}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.Application", "Dfe.Edis.SourceAdapter.Ukrlp.Application\Dfe.Edis.SourceAdapter.Ukrlp.Application.csproj", "{3A2F19AC-D7AE-45E3-95B8-B1F07164466E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AD95F80A-60C5-4785-AEED-9B7947D859BF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp.UnitTests", "Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp.UnitTests\Dfe.Edis.SourceAdapter.Ukrlp.FunctionApp.UnitTests.csproj", "{2B08F8E7-7AD7-4252-9C62-ABFCAAEA28CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.UkrlpSoapApi", "Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.UkrlpSoapApi\Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.UkrlpSoapApi.csproj", "{ACE7EAD1-EE66-4074-AEF5-393C610B77E0}"
 EndProject
@@ -39,10 +35,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EF10FC4A-AFCE-4FBB-ACC0-9B0EEBB2DEE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF10FC4A-AFCE-4FBB-ACC0-9B0EEBB2DEE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF10FC4A-AFCE-4FBB-ACC0-9B0EEBB2DEE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF10FC4A-AFCE-4FBB-ACC0-9B0EEBB2DEE8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{071E13D6-798C-4BEB-B9EC-FACEA0BE0716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{071E13D6-798C-4BEB-B9EC-FACEA0BE0716}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{071E13D6-798C-4BEB-B9EC-FACEA0BE0716}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,10 +43,6 @@ Global
 		{3A2F19AC-D7AE-45E3-95B8-B1F07164466E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A2F19AC-D7AE-45E3-95B8-B1F07164466E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A2F19AC-D7AE-45E3-95B8-B1F07164466E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B08F8E7-7AD7-4252-9C62-ABFCAAEA28CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B08F8E7-7AD7-4252-9C62-ABFCAAEA28CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B08F8E7-7AD7-4252-9C62-ABFCAAEA28CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B08F8E7-7AD7-4252-9C62-ABFCAAEA28CC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ACE7EAD1-EE66-4074-AEF5-393C610B77E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ACE7EAD1-EE66-4074-AEF5-393C610B77E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACE7EAD1-EE66-4074-AEF5-393C610B77E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -89,7 +77,6 @@ Global
 		{28B6B9C1-DA2D-4432-8F7A-379E46A915E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{2B08F8E7-7AD7-4252-9C62-ABFCAAEA28CC} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
 		{5F8C78AB-F94C-4CE0-B515-31A549072336} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
 		{ECD6D2AE-5C62-4616-9CF7-2C3EB088F9D1} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
 		{C73FABB1-AE57-4B96-8CE5-95EF3D01B20F} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
