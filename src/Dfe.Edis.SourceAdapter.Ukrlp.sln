@@ -1,0 +1,92 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.Domain", "Dfe.Edis.SourceAdapter.Ukrlp.Domain\Dfe.Edis.SourceAdapter.Ukrlp.Domain.csproj", "{071E13D6-798C-4BEB-B9EC-FACEA0BE0716}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.Application", "Dfe.Edis.SourceAdapter.Ukrlp.Application\Dfe.Edis.SourceAdapter.Ukrlp.Application.csproj", "{3A2F19AC-D7AE-45E3-95B8-B1F07164466E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AD95F80A-60C5-4785-AEED-9B7947D859BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.UkrlpSoapApi", "Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.UkrlpSoapApi\Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.UkrlpSoapApi.csproj", "{ACE7EAD1-EE66-4074-AEF5-393C610B77E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.UkrlpSoapApi.UnitTests", "Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.UkrlpSoapApi.UnitTests\Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.UkrlpSoapApi.UnitTests.csproj", "{5F8C78AB-F94C-4CE0-B515-31A549072336}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.AzureStorage", "Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.AzureStorage\Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.AzureStorage.csproj", "{C3BEB5AD-77F9-455C-8571-8039EE729E8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.Application.UnitTests", "Dfe.Edis.SourceAdapter.Ukrlp.Application.UnitTests\Dfe.Edis.SourceAdapter.Ukrlp.Application.UnitTests.csproj", "{ECD6D2AE-5C62-4616-9CF7-2C3EB088F9D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.Kafka", "Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.Kafka\Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.Kafka.csproj", "{368E5CB6-BA5B-48B5-B9EF-013B97BBBC1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.Kafka.UnitTests", "Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.Kafka.UnitTests\Dfe.Edis.SourceAdapter.Ukrlp.Infrastructure.Kafka.UnitTests.csproj", "{C73FABB1-AE57-4B96-8CE5-95EF3D01B20F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{66F115F3-5918-4C63-8E04-93E63DA37541}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{BD7944F8-CCE4-4EC4-85C1-459156448952}"
+ProjectSection(SolutionItems) = preProject
+	..\pipelines\build.yml = ..\pipelines\build.yml
+EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.WebJob", "Dfe.Edis.SourceAdapter.Ukrlp.WebJob\Dfe.Edis.SourceAdapter.Ukrlp.WebJob.csproj", "{5B85D6D4-4113-4EE0-AC51-1A141FE38A8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.WebJob.UnitTests", "Dfe.Edis.SourceAdapter.Ukrlp.WebJob.UnitTests\Dfe.Edis.SourceAdapter.Ukrlp.WebJob.UnitTests.csproj", "{28B6B9C1-DA2D-4432-8F7A-379E46A915E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Release", "Release", "{FBCD826F-EF52-462B-983A-9B527979E11D}"
+ProjectSection(SolutionItems) = preProject
+	..\azure\template.json = ..\azure\template.json
+EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{071E13D6-798C-4BEB-B9EC-FACEA0BE0716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{071E13D6-798C-4BEB-B9EC-FACEA0BE0716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{071E13D6-798C-4BEB-B9EC-FACEA0BE0716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{071E13D6-798C-4BEB-B9EC-FACEA0BE0716}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A2F19AC-D7AE-45E3-95B8-B1F07164466E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A2F19AC-D7AE-45E3-95B8-B1F07164466E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A2F19AC-D7AE-45E3-95B8-B1F07164466E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A2F19AC-D7AE-45E3-95B8-B1F07164466E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACE7EAD1-EE66-4074-AEF5-393C610B77E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACE7EAD1-EE66-4074-AEF5-393C610B77E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACE7EAD1-EE66-4074-AEF5-393C610B77E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACE7EAD1-EE66-4074-AEF5-393C610B77E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F8C78AB-F94C-4CE0-B515-31A549072336}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F8C78AB-F94C-4CE0-B515-31A549072336}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F8C78AB-F94C-4CE0-B515-31A549072336}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F8C78AB-F94C-4CE0-B515-31A549072336}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3BEB5AD-77F9-455C-8571-8039EE729E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3BEB5AD-77F9-455C-8571-8039EE729E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3BEB5AD-77F9-455C-8571-8039EE729E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3BEB5AD-77F9-455C-8571-8039EE729E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECD6D2AE-5C62-4616-9CF7-2C3EB088F9D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECD6D2AE-5C62-4616-9CF7-2C3EB088F9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECD6D2AE-5C62-4616-9CF7-2C3EB088F9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECD6D2AE-5C62-4616-9CF7-2C3EB088F9D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{368E5CB6-BA5B-48B5-B9EF-013B97BBBC1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{368E5CB6-BA5B-48B5-B9EF-013B97BBBC1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{368E5CB6-BA5B-48B5-B9EF-013B97BBBC1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{368E5CB6-BA5B-48B5-B9EF-013B97BBBC1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C73FABB1-AE57-4B96-8CE5-95EF3D01B20F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C73FABB1-AE57-4B96-8CE5-95EF3D01B20F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C73FABB1-AE57-4B96-8CE5-95EF3D01B20F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C73FABB1-AE57-4B96-8CE5-95EF3D01B20F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B85D6D4-4113-4EE0-AC51-1A141FE38A8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B85D6D4-4113-4EE0-AC51-1A141FE38A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B85D6D4-4113-4EE0-AC51-1A141FE38A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B85D6D4-4113-4EE0-AC51-1A141FE38A8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28B6B9C1-DA2D-4432-8F7A-379E46A915E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28B6B9C1-DA2D-4432-8F7A-379E46A915E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28B6B9C1-DA2D-4432-8F7A-379E46A915E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28B6B9C1-DA2D-4432-8F7A-379E46A915E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5F8C78AB-F94C-4CE0-B515-31A549072336} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
+		{ECD6D2AE-5C62-4616-9CF7-2C3EB088F9D1} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
+		{C73FABB1-AE57-4B96-8CE5-95EF3D01B20F} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
+		{BD7944F8-CCE4-4EC4-85C1-459156448952} = {66F115F3-5918-4C63-8E04-93E63DA37541}
+		{28B6B9C1-DA2D-4432-8F7A-379E46A915E6} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
+		{FBCD826F-EF52-462B-983A-9B527979E11D} = {66F115F3-5918-4C63-8E04-93E63DA37541}
+	EndGlobalSection
+EndGlobal

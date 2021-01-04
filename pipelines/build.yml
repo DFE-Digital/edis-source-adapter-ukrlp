@@ -1,0 +1,56 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - "*"
+
+workspace:
+  clean: all
+
+variables:
+  buildConfiguration: 'release'
+  buildPlatform: 'any cpu'
+
+steps:
+  - task: NuGetCommand@2
+    displayName: 'Restore NuGet Packages'
+    inputs:
+      command: 'restore'
+      restoreSolution: '**/*.sln'
+
+  - task: DotNetCoreCLI@2
+    displayName: 'Build code'
+    inputs:
+      projects: 'src/**/*.csproj'
+      arguments: '--configuration $(buildConfiguration) --no-restore'
+
+  - task: DotNetCoreCLI@2
+    displayName: Test
+    inputs:
+      command: test
+      projects: 'src/**/*.*Tests.csproj'
+      arguments: '--configuration $(buildConfiguration) --no-build'
+
+  - task: DotNetCoreCLI@2
+    displayName: 'Publish WebJob'
+    inputs:
+      command: publish
+      publishWebProjects: false
+      projects: 'src/Dfe.Edis.SourceAdapter.Ukrlp.WebJob/Dfe.Edis.SourceAdapter.Ukrlp.WebJob.csproj'
+      arguments: '--configuration $(buildConfiguration) --self-contained --output $(build.artifactstagingdirectory)/PublishedWebJob/App_Data/jobs/continuous/UkrlpSourceJob --no-restore --no-build'
+      zipAfterPublish: false
+      modifyOutputPath: false
+      
+  - task: ArchiveFiles@2
+    displayName: 'Zip WebJob'
+    inputs:
+      rootFolderOrFile: '$(build.artifactstagingdirectory)/PublishedWebJob'
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/publish/Dfe.Edis.SourceAdapter.Ukrlp.$(Build.BuildId).zip'
+      replaceExistingArchive: true
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact'
+    inputs:
+      PathtoPublish: '$(build.artifactstagingdirectory)/publish'
