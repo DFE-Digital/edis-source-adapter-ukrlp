@@ -49,6 +49,14 @@ steps:
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)/publish/Dfe.Edis.SourceAdapter.Ukrlp.$(Build.BuildId).zip'
       replaceExistingArchive: true
+      
+  - task: CopyFiles@2
+    displayName: 'Copy ARM template'
+    inputs:
+      Contents: |
+        azure/*
+      TargetFolder: '$(build.artifactstagingdirectory)/publish'
+      OverWrite: true
 
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact'
