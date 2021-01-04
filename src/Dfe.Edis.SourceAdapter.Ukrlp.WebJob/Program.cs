@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using Dfe.Edis.SourceAdapter.Ukrlp.Domain.Configuration;
 using Microsoft.Extensions.Configuration;
@@ -36,6 +37,12 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.WebJob
             {
                 logBuilder.SetMinimumLevel(LogLevel.Debug);
                 logBuilder.AddConsole();
+
+                var appInsightsKey = Environment.GetEnvironmentVariable("APPINSIGHTS_INSTRUMENTATIONKEY");
+                if (!string.IsNullOrWhiteSpace(appInsightsKey))
+                {
+                    logBuilder.AddApplicationInsights(appInsightsKey);
+                }
             });
             hostBuilder.ConfigureServices((context, services) =>
             {
