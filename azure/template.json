@@ -40,7 +40,7 @@
       "type": "string"
     },
     "ukrlpApiStakeholderId": {
-      "type": "number"
+      "type": "securestring"
     },
     "kafkaRestProxyUrl": {
       "type": "string"
