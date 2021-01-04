@@ -31,6 +31,8 @@ EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.WebJob", "Dfe.Edis.SourceAdapter.Ukrlp.WebJob\Dfe.Edis.SourceAdapter.Ukrlp.WebJob.csproj", "{5B85D6D4-4113-4EE0-AC51-1A141FE38A8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfe.Edis.SourceAdapter.Ukrlp.WebJob.UnitTests", "Dfe.Edis.SourceAdapter.Ukrlp.WebJob.UnitTests\Dfe.Edis.SourceAdapter.Ukrlp.WebJob.UnitTests.csproj", "{28B6B9C1-DA2D-4432-8F7A-379E46A915E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{5B85D6D4-4113-4EE0-AC51-1A141FE38A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B85D6D4-4113-4EE0-AC51-1A141FE38A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B85D6D4-4113-4EE0-AC51-1A141FE38A8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28B6B9C1-DA2D-4432-8F7A-379E46A915E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28B6B9C1-DA2D-4432-8F7A-379E46A915E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28B6B9C1-DA2D-4432-8F7A-379E46A915E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28B6B9C1-DA2D-4432-8F7A-379E46A915E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2B08F8E7-7AD7-4252-9C62-ABFCAAEA28CC} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
@@ -88,5 +94,6 @@ Global
 		{ECD6D2AE-5C62-4616-9CF7-2C3EB088F9D1} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
 		{C73FABB1-AE57-4B96-8CE5-95EF3D01B20F} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
 		{BD7944F8-CCE4-4EC4-85C1-459156448952} = {66F115F3-5918-4C63-8E04-93E63DA37541}
+		{28B6B9C1-DA2D-4432-8F7A-379E46A915E6} = {AD95F80A-60C5-4785-AEED-9B7947D859BF}
 	EndGlobalSection
 EndGlobal
