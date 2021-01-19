@@ -237,6 +237,14 @@
               "Value": "[reference(resourceId(variables('sharedResourceGroupName'), 'microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
             },
             {
+              "Name": "WEBSITE_VNET_ROUTE_ALL",
+              "Value": "1"
+            },
+            {
+              "Name": "WEBSITE_DNS_SERVER",
+              "Value": "168.63.129.16"
+            },
+            {
               "Name": "CheckForChangeSchedule",
               "Value": "[parameters('schedule')]"
             },
