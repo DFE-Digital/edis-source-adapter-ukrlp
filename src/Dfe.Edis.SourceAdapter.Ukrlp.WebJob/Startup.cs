@@ -24,7 +24,7 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.WebJob
             services.AddKafkaProducer();
 
             AddUkrlpApi(services);
-            AddUkrlpDataReceiver(services);
+            AddUkrlpDataReceiver(services, configuration);
             AddState(services);
 
             services
@@ -61,19 +61,24 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.WebJob
             });
         }
 
-        private void AddUkrlpDataReceiver(IServiceCollection services)
+        private void AddUkrlpDataReceiver(IServiceCollection services, RootAppConfiguration configuration)
         {
-            // Having issues with Typed clients with HTTP extensions. Doing this for now
-            // services.AddScoped<IUkrlpDataReceiver, KafkaRestProxyUkrlpDataReceiver>(sp =>
-            // {
-            //     var httpClientFactory = sp.GetService<IHttpClientFactory>();
-            //     return new KafkaRestProxyUkrlpDataReceiver(
-            //         httpClientFactory.CreateClient(),
-            //         sp.GetService<DataServicePlatformConfiguration>(),
-            //         sp.GetService<ILogger<KafkaRestProxyUkrlpDataReceiver>>());
-            // });
-
-            services.AddScoped<IUkrlpDataReceiver, KafkaProducerApiUkrlpDataReceiver>();
+            if (!string.IsNullOrEmpty(configuration.DataServicePlatform.KafkaBootstrapServers))
+            {
+                services.AddScoped<IUkrlpDataReceiver, KafkaProducerApiUkrlpDataReceiver>();
+            }
+            else
+            {
+                // Having issues with Typed clients with HTTP extensions. Doing this for now
+                services.AddScoped<IUkrlpDataReceiver, KafkaRestProxyUkrlpDataReceiver>(sp =>
+                {
+                    var httpClientFactory = sp.GetService<IHttpClientFactory>();
+                    return new KafkaRestProxyUkrlpDataReceiver(
+                        httpClientFactory.CreateClient(),
+                        sp.GetService<DataServicePlatformConfiguration>(),
+                        sp.GetService<ILogger<KafkaRestProxyUkrlpDataReceiver>>());
+                });
+            }
         }
 
         private void AddState(IServiceCollection services)
