@@ -45,6 +45,12 @@
     "kafkaRestProxyUrl": {
       "type": "string"
     },
+    "kafkaBootstrapServers": {
+      "type": "string"
+    },
+    "kafkaSchemaRegistryUrl": {
+      "type": "string"
+    },
     "kafkaUkrlpProviderTopic": {
       "type": "string"
     },
@@ -267,6 +273,14 @@
             {
               "Name": "DataServicePlatform__KafkaRestProxyUrl",
               "Value": "[parameters('kafkaRestProxyUrl')]"
+            },
+            {
+              "Name": "DataServicePlatform__KafkaBootstrapServers",
+              "Value": "[parameters('kafkaBootstrapServers')]"
+            },
+            {
+              "Name": "DataServicePlatform__SchemaRegistryUrl",
+              "Value": "[parameters('kafkaSchemaRegistryUrl')]"
             },
             {
               "Name": "DataServicePlatform__UkrlpProviderTopic",
