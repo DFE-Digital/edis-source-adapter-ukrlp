@@ -48,6 +48,12 @@
     "kafkaBootstrapServers": {
       "type": "string"
     },
+    "kafkaUsername": {
+      "type": "string"
+    },
+    "kafkaPassword": {
+      "type": "string"
+    },
     "kafkaSchemaRegistryUrl": {
       "type": "string"
     },
@@ -279,12 +285,20 @@
               "Value": "[parameters('kafkaBootstrapServers')]"
             },
             {
-              "Name": "DataServicePlatform__SchemaRegistryUrl",
-              "Value": "[parameters('kafkaSchemaRegistryUrl')]"
+              "Name": "DataServicePlatform__KafkaBootstrapServers",
+              "Value": "[parameters('kafkaBootstrapServers')]"
+            },
+            {
+              "Name": "DataServicePlatform__Username",
+              "Value": "[parameters('kafkaBootstrapServers')]"
+            },
+            {
+              "Name": "DataServicePlatform__Password",
+              "Value": "[parameters('kafkaUsername')]"
             },
             {
               "Name": "DataServicePlatform__UkrlpProviderTopic",
-              "Value": "[parameters('kafkaUkrlpProviderTopic')]"
+              "Value": "[parameters('kafkaPassword')]"
             }
           ]
         }

@@ -41,6 +41,8 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.WebJob
             services.AddSingleton(new KafkaBrokerConfiguration
             {
                 BootstrapServers = configuration.DataServicePlatform.KafkaBootstrapServers,
+                SaslUsername = configuration.DataServicePlatform.Username,
+                SaslPassword = configuration.DataServicePlatform.Password,
             });
             services.AddSingleton(new KafkaSchemaRegistryConfiguration
             {
