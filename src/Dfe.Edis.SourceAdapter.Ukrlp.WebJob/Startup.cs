@@ -47,6 +47,8 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.WebJob
             services.AddSingleton(new KafkaSchemaRegistryConfiguration
             {
                 BaseUrl = configuration.DataServicePlatform.SchemaRegistryUrl,
+                Username = configuration.DataServicePlatform.Username,
+                Password = configuration.DataServicePlatform.Password,
             });
         }
 
