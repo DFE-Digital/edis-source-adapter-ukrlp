@@ -59,10 +59,13 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.Application
             
             foreach (var provider in changedProviders)
             {
+                _logger.LogDebug($"Sending provider {provider.UnitedKingdomProviderReferenceNumber}");
                 await _ukrlpDataReceiver.SendDataAsync(provider, cancellationToken);
             }
+            _logger.LogInformation($"Finished sending {changedProviders.Length} provider changes");
 
             await _stateStore.SetStateAsync("LastChecked", lastChecked.ToString("O"), cancellationToken);
+            _logger.LogInformation($"Updated LastChecked to {lastChecked:O}");
         }
     }
 }
