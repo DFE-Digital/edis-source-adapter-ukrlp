@@ -290,7 +290,7 @@
             },
             {
               "Name": "DataServicePlatform__Password",
-              "Value": "[parameters('kafkaUsername')]"
+              "Value": "[parameters('kafkaPassword')]"
             },
             {
               "Name": "DataServicePlatform__SchemaRegistryUrl",
