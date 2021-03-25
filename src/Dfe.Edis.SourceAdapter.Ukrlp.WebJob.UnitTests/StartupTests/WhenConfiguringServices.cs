@@ -68,6 +68,7 @@ namespace Dfe.Edis.SourceAdapter.Ukrlp.WebJob.UnitTests.StartupTests
                 DataServicePlatform = new DataServicePlatformConfiguration
                 {
                     KafkaBootstrapServers = "localhost:1001",
+                    KafkaMdsUrl = "http://localhost:1004",
                     KafkaRestProxyUrl = "https://localhost:1003",
                     SchemaRegistryUrl = "https://localhost:1002",
                     UkrlpProviderTopic = "test-topic",
