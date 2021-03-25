@@ -48,6 +48,9 @@
     "kafkaBootstrapServers": {
       "type": "string"
     },
+    "kafkaMdsUrl": {
+      "type": "string"
+    },
     "kafkaUsername": {
       "type": "string"
     },
@@ -283,6 +286,10 @@
             {
               "Name": "DataServicePlatform__KafkaBootstrapServers",
               "Value": "[parameters('kafkaBootstrapServers')]"
+            },
+            {
+              "Name": "DataServicePlatform__KafkaMdsUrl",
+              "Value": "[parameters('kafkaMdsUrl')]"
             },
             {
               "Name": "DataServicePlatform__Username",
